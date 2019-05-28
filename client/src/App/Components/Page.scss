@@ -1,0 +1,13 @@
+.post {
+    justify-content: center;
+    margin: 0px;
+    .content {
+        text-align: center;
+        .image {
+            width: 100%;
+        }
+        p {
+            text-align: justify;
+        }
+    }
+}
