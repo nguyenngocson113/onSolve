@@ -17,7 +17,6 @@ to run unit test frontend
 ### `cd client`
 ### `yarn test`
 
-
-
+### NOTE: use node version v10.15.3
 
 
