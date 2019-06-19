@@ -1,7 +1,7 @@
 
 tr {
     display: grid;
-    grid-template-columns: 30% 50% 20%;
+    grid-template-columns: 20% 30% 15% 15% 20%;
     td {
         padding: 10px;
         height: 20px;
@@ -15,7 +15,10 @@ tr {
         text-decoration: none;
         text-align: center;
         height: inherit;
-        border: 1px solid #ca2e2e;;
+        border: 1px solid black;
+        input {
+            width: 100%;
+        }
     }
     .description {
         &-text {

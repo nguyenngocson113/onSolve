@@ -15,9 +15,9 @@ class List extends Component {
                 <ul className="title">
                     {
                         title.map((item, index) => {
-                            const {classCss = '', name = ''} = item;
+                            const {header = '', name = ''} = item;
                             return (
-                                <li className={classCss} key={index}>{name}</li>
+                                <li className={header} key={index}>{item}</li>
                             )
                         })
                     }   
@@ -27,28 +27,18 @@ class List extends Component {
                         {
                             list.map((item, index) => {
                                 const isEven = (index % 2) === 0 ? true : false;
-                                const className = classNames({
-                                    'row-even': isEven
-                                });
                                 const {
-                                    name = '',
-                                    description = '',
-                                    thumbnail: {
-                                        extension = 'jpg',
-                                        path = ''
-                                    } = {},
-                                    id
+                                    projects = [],
+                                    version = '',
+                                    dateReleased = '',
+                                    dateCreated = ''
                                 } = item;
-                                const link = {
-                                    pathname: `/page/${id}`,
-                                    detail: item
-                                };
-                                return ( <Table 
-                                            link={link}
-                                            name={name}
-                                            description={description}
-                                            img={`${path}.${extension}`}
-                                            className={className}
+                                const {slug: projectName = ''} = projects[0];
+                                return (<Table 
+                                            name={projectName}
+                                            version={version}
+                                            dateReleased={dateReleased}
+                                            dateCreated ={dateCreated}
                                             index={index}
                                             key={index}
                                         />);

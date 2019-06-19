@@ -7,42 +7,41 @@ class Table extends Component {
         super(props);
     }
 
-    pressEnter(e) {
-        if(e.keyCode === 13) {
-            const {link = '/'} = this.props;
-            this.props.history.push(link);
-        }
+    state = {
+        isUpdate: false
+    };
+
+    updateVersion() {
+        this.setState({isUpdate: true});
+    }
+
+    onChangeNameVer(e, version) {
+        console.log(e.target.value)
+        
     }
 
     render() {
         const { 
             name = '', 
-            description = '', 
-            img = '', 
-            link = '', 
             index = '', 
-            className = '' 
+            version = '',
+            dateReleased = '',
+            dateCreated = '',
+            versionName = ''
         } = this.props;
+        const {isUpdate = false} = this.state;
         return (
-            <tr key={index} className={className}>
-                    <td tabIndex={`${index}1`} className="name"><span>{name}</span></td>
-                    <td tabIndex={`${index}2`}>
-                        <span className="description-text">{description}</span>
-                    </td>
-                    {link ?
-                        <td tabIndex={`${index}3`} onKeyDown={(e) => this.pressEnter(e)}>
-                            <Link to={link} >
-                                <img className="description-thumbnail" src={img}></img>
-                            </Link>
-                        </td>
-                    :
-                    <td tabIndex={`${index}3`}>
-                            <img className="description-thumbnail" src={img}></img>
-                    </td>
-                    }
+            <tr key={index}>
+                    <td tabIndex={index}><span>{name}</span></td>
+                    <td tabIndex={index}><span>{version}</span></td>
+                    <td tabIndex={index}><span>{dateReleased}</span></td>
+                    <td tabIndex={index}><span>{dateCreated}</span></td>
+                    <td tabIndex={index} onClick={() => {this.updateVersion()}}> {isUpdate ? <input onChange={(e) => {this.onChangeNameVer(e, version)}}></input> : <span>{versionName}</span>}</td>
             </tr>
         );
     }
 }
+
+
 
 export default withRouter(Table);
