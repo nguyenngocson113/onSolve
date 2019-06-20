@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.scss';
-import ModalGallery from './Components/ModalGallery';
+import List from './Components/List';
 
 class App extends Component {
 
 	render() {
 		return (
 			<div className="App">
-				<ModalGallery />
+				<List />
 			</div>
 		);
 	}
