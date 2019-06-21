@@ -10,7 +10,9 @@ const lo = require('lodash');
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
-
+app.get('/', function(req, res){
+    console.log('test')
+ });
 app.get('/api/getList', (req,res) => {
     Promise.all([
         readVersionsFromFile(),
